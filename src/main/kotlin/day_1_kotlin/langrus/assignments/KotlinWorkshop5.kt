@@ -29,15 +29,34 @@ class Bicycle: Transport(1) {
 //  См. ниже.
 // ? Имена классов и файлов Котлин принято называть с заглавной буквы, в формате "camelCase".
 // Например: "SomeLongClassName"
-//interface ...
+interface Beeping{
+    fun beep()
+}
 
 // TODO 2: Создай свои собственные классы, например "Bus" и "Car".
 //  Эти классы не будут полностью написаны с нуля, они должны расширять общий класс "Transport",
 //  и дополнительно реализовывать придуманный тобой интерфейс.
 // ? Класс может наследовать только один класс, но реализовывать несколько интерфейсов, например:
 // class Kitty(): Cat, Cuteable, Sleepable, Furryable {}
-//class Bus ...
-//class Car ...
+class Bus: Transport(5), Beeping{
+
+    override fun drive() {
+        println("Bus is driving")
+    }
+
+    override fun beep() {
+        println("Bus is beeping")
+    }
+}
+class Car: Transport(2), Beeping{
+    override fun drive() {
+        println("Car is driving")
+    }
+
+    override fun beep() {
+        println("Car is beeping")
+    }
+}
 
 // TODO 3: Протестируй работоспособность твоего транспорта.
 object VehiclesTest {
@@ -52,17 +71,22 @@ object VehiclesTest {
 
     private fun testBus() {
         println("Testing how bus drives...")
-//        val bus = ...
+        val bus = Bus();
+        bus.beep()
+        bus.drive()
     }
 
     private fun testCar() {
         println("Testing how car drives...")
-//        val car = ...
+        val car = Car()
+        car.beep()
+        car.drive()
     }
 
     private fun testBicycle() {
         println("Testing how bicycle drives...")
-//        ...
+        val bicycle = Bicycle()
+        bicycle.drive()
     }
 
 
